@@ -48,6 +48,7 @@
     border: none;
     background: #ce1213;
     color: white;
+    cursor: pointer;
 }
 
 .login-button-container .login-link {

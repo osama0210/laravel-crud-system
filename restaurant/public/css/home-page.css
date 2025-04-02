@@ -1,5 +1,92 @@
 .home-page{
-    height: 100lvh;
-    width: 100%;
-    background: #f2f2f2;
+    height: calc(100vh - 90px);
+    background: #f2f2f2 url("/images/home-page-background.png") no-repeat right bottom;
+    background-size: clamp(18rem, 40vw, 45rem);
+    display: flex;
+    align-items: center;
 }
+
+.home-page-txt-container {
+    width: 40%;
+    max-width: 50%;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.home-page-txt-container h1 {
+    font-size: 3rem;
+    line-height: 1.2em;
+}
+
+.normal-text {
+    color: #898989;
+
+}
+
+.home-page-txt-container .order-btn {
+    width: fit-content;
+}
+
+.service-section {
+    height: 50vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+
+}
+
+.all-services {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.service-container {
+    width: 13rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.service {
+    background-color: #fcf3f3;
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.service img {
+    width: 2.5rem;
+}
+
+/*------------------------------------------------------------------------------------*/
+.about-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.about-us-content {
+    width: 100%;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.about-us-img {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.about-us-text{
+    padding: 5rem 4rem;
+    flex: 0 0 50%;
+    max-width: 50%;}
+
