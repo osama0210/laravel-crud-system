@@ -120,11 +120,15 @@
 
                 Because good food isn’t just about eating, it’s about enjoying life! 🍽️✨
             </p>
-            <button class="login-button">
+            <button class="login-button contact-button">
                 Contact
             </button>
         </div>
     </div>
 </section>
+<div class="between-section"></div>
+<footer class="footer">
+    <h1>Footer will come later</h1>
+</footer>
 </body>
 </html>

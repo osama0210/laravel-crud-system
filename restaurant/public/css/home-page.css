@@ -76,8 +76,7 @@
 .about-us-content {
     width: 100%;
     display: flex;
-    gap: 3rem;
-    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 .about-us-img {
@@ -87,6 +86,28 @@
 
 .about-us-text{
     padding: 5rem 4rem;
-    flex: 0 0 50%;
-    max-width: 50%;}
+    flex: 0 0 47%;
+    max-width: 50%;
+}
 
+.about-us-text p{
+    color: #898989;
+}
+
+.contact-button{
+    margin: 2rem 0;
+}
+
+/*------------------------------------------------------------------------------------*/
+
+.between-section{
+    height: 150px;
+    width: 100%;
+    background-color: white;
+}
+
+.footer{
+    height: 300px;
+    width: 100%;
+    background-color: #1f1f24;
+}
