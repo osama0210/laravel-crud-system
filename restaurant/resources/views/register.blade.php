@@ -37,7 +37,7 @@
                 <input class="register-input" type="email" name="email" placeholder="Email">
                 <input class="register-input" type="password" name="password" placeholder="Enter your password">
                 <input class="register-input" type="password" name="password" placeholder="Enter your password">
-                <input class="submit-btn" type="submit">
+                <input class="submit-btn" type="submit" value="Signup">
             </form>
         </section>
     </section>
