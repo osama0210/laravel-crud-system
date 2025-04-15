@@ -8,7 +8,7 @@
     background-color: #ce1213;
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
-    margin: 0 0 1rem 1rem;
+    margin: 0 1rem 1rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -31,6 +31,7 @@
 
 .signup-half-two {
     height: calc(100vh - 90px - 1rem);
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,3 +78,6 @@
     cursor: pointer;
 }
 
+.login-text{
+
+}
