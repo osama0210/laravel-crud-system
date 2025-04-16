@@ -29,7 +29,7 @@
                 <p>Don't have an account? <a class="login-link" href="/register">Register</a></p>
             </div>
 
-            <form class="register-form" action="" method="post">
+            <form class="register-form" action="{{ route('login.attempt') }}" method="post">
                 @csrf
                 <input class="register-input" type="email" name="email" placeholder="Email">
                 <input class="register-input" type="password" name="password" placeholder="Enter your password">

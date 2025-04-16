@@ -15,3 +15,9 @@ Route::get('/success', function () {
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm']);
+Route::post('/login', [AuthController::class, 'login'])->name('login.attempt');
+Route::get('/user-page', function (){
+    return view('users.user-page');
+})->middleware('auth');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
