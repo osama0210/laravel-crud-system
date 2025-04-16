@@ -15,6 +15,11 @@
 </head>
 <body>
 @include('components.header')
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <section class="register-body-container">
     <section class="signup-body">
 

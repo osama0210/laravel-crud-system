@@ -1,6 +1,7 @@
 @import "header.css";
 @import "home-page.css";
 @import "register.css";
+@import "success-page.css";
 
 * {
     margin: 0;
@@ -12,12 +13,16 @@
 body {
     background-color: #f4f4f4;
     line-height: 1.6;
-}
 
-h1{
-    
 }
 
 p{
     color: #898989;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin: 0;
+    font-weight: 400;
 }
