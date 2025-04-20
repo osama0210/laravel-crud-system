@@ -52,6 +52,9 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            if (auth()->user()->role === 'admin') {
+                return redirect('/admin');
+            }
             return redirect('/user-page');
         }
         return back()->withErrors(['email' => 'Deze combinatie klopt niet.',])->onlyInput('email');
@@ -62,7 +65,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
         return redirect('/login');
     }
 }

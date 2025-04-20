@@ -6,19 +6,22 @@
             </div>
         </a>
         <div class="links-container">
-            <a href="">Home</a>
+            <a href="/">Home</a>
             <a href="/">About</a>
             <a href="/">Menu</a>
         </div>
         <div class="login-button-container">
-            @auth
+            @auth()
                 <div class="logout-and-user-dashboard-btn">
                     <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <button class="login-button">Logout</button>
                     </form>
+                    @php
+                        $dashboardRoute = auth()->user()->role === 'admin' ? '/admin' : '/user-page';
+                    @endphp
                     <div class="user-dashboard-btn">
-                        <a href="/user-page">
+                        <a href="{{ $dashboardRoute }}">
                             <img src="{{ asset('images/user-icon.svg') }}" alt="">
                         </a>
                     </div>
