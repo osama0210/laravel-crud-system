@@ -36,17 +36,17 @@
             </thead>
             <tbody>
             @foreach($products as $product)
-            <tr>
-                <td> {{ $product->id }} </td>
-                <td> {{ $product->product_name }} </td>
-                <td> {{ $product->product_description }} </td>
-                <td> {{ $product->product_price }} </td>
-                <td>Drinks</td>
-                <td>
-                    <button class="btn btn-edit">Edit</button>
-                    <button class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</button>
-                </td>
-            </tr>
+                <tr>
+                    <td> {{ $product->id }} </td>
+                    <td> {{ $product->product_name }} </td>
+                    <td> {{ $product->product_description }} </td>
+                    <td> {{ $product->product_price }} </td>
+                    <td>{{ $product->category->category_name ?? 'Uncategorized' }}</td>
+                    <td>
+                        <button class="btn btn-edit">Edit</button>
+                        <button class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</button>
+                    </td>
+                </tr>
             @endforeach
             </tbody>
         </table>
@@ -64,7 +64,7 @@
                 <textarea name="product_description" id="" cols="30" rows="4" placeholder="Description"></textarea>
                 <input type="text" name="product_price" placeholder="Enter Product Price">
                 <select name="category_id">
-                    <option value="">-- Select Category --</option>
+                    <option value="">Select Category</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                     @endforeach
@@ -73,7 +73,7 @@
                     <input type="submit" value="Add Product">
                 </div>
             </form>
-            <form action="{{ route('products.category') }}" method="post">
+            <form action="{{ route('products.category') }}" method="POST">
                 @csrf
                 <h1>New Category</h1>
                 <input type="text" name="category_name" placeholder="New category">

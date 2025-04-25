@@ -32,4 +32,4 @@ Route::get('/admin', function () {
 Route::get('/admin', [MenuController::class, 'showAdminProducts'])->middleware(['auth', 'admin']);
 Route::post('/admin/products', [MenuController::class, 'store'])->name('products.store');
 
-Route::post('/admin/category', [MenuController::class, 'story_category'])->name('products.category');
+Route::post('/admin/category', [MenuController::class, 'store_category'])->name('products.category');
