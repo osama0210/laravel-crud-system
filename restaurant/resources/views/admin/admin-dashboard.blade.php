@@ -11,6 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <script src="{{ asset('js/modal.js') }}"></script>
     <title>Admin</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
     <div class="table-container">
         <div class="table-title-btn-container">
             <h1>Products</h1>
-            <button>Add Product</button>
+            <button class="login-button btn" id="openModal">Add Product</button>
 
         </div>
         <table class="products-table">
@@ -34,52 +35,53 @@
             </tr>
             </thead>
             <tbody>
+            @foreach($products as $product)
             <tr>
-                <td>3</td>
-                <td>Shahie</td>
-                <td>Its the bes...</td>
-                <td>$1,99</td>
+                <td> {{ $product->id }} </td>
+                <td> {{ $product->product_name }} </td>
+                <td> {{ $product->product_description }} </td>
+                <td> {{ $product->product_price }} </td>
                 <td>Drinks</td>
                 <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <button class="btn btn-edit">Edit</button>
+                    <button class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</button>
                 </td>
             </tr>
-            <tr class="active-row">
-                <td>3</td>
-                <td>Shahie</td>
-                <td>Its the bes...</td>
-                <td>$1,99</td>
-                <td>Drinks</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Shahie</td>
-                <td>Its the bes...</td>
-                <td>$1,99</td>
-                <td>Drinks</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Shahie</td>
-                <td>Its the bes...</td>
-                <td>$1,99</td>
-                <td>Drinks</td>
-                <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-            </tr>
+            @endforeach
             </tbody>
         </table>
+    </div>
+
+    <div class="modal">
+        <div class="modal-header">
+            <h1>Add Product</h1>
+            <img id="closeModal" src="{{ asset("images/exit-icon.svg") }}" alt="Black exit X button">
+        </div>
+        <div class="modal-body">
+            <form action="{{ route('products.store') }}" method="POST">
+                @csrf
+                <input type="text" name="product_name" placeholder="Enter Product Name">
+                <textarea name="product_description" id="" cols="30" rows="4" placeholder="Description"></textarea>
+                <input type="text" name="product_price" placeholder="Enter Product Price">
+                <select name="category_id">
+                    <option value="">-- Select Category --</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                    @endforeach
+                </select>
+                <div class="submit-wrapper">
+                    <input type="submit" value="Add Product">
+                </div>
+            </form>
+            <form action="{{ route('products.category') }}" method="post">
+                @csrf
+                <h1>New Category</h1>
+                <input type="text" name="category_name" placeholder="New category">
+                <div class="submit-wrapper">
+                    <input type="submit" value="Add Category">
+                </div>
+            </form>
+        </div>
     </div>
 </section>
 </body>

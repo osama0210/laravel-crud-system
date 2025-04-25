@@ -14,8 +14,7 @@ Route::get('/success', function () {
     return view('components.success');
 });
 
-Route::get('/login', [AuthController::class, 'showLoginForm']);
-
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.attempt');
 
 Route::get('/user-page', function (){
@@ -29,3 +28,8 @@ Route::get('/admin', function () {
     return view('admin.admin-dashboard');
 })->middleware('auth', 'admin');
 
+
+Route::get('/admin', [MenuController::class, 'showAdminProducts'])->middleware(['auth', 'admin']);
+Route::post('/admin/products', [MenuController::class, 'store'])->name('products.store');
+
+Route::post('/admin/category', [MenuController::class, 'story_category'])->name('products.category');

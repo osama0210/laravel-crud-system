@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -14,6 +15,14 @@ class MenuController extends Controller
     {
         $products = Product::all();
         return view('index', compact('products'));
+    }
+
+    public function showAdminProducts()
+    {
+        $products = Product::all();
+        $categories = Categories::all();
+        return view('admin.admin-dashboard', compact('products', 'categories'));
+
     }
 
     /**
@@ -30,6 +39,28 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'product_name' => 'required',
+            'product_description' => 'required',
+            'product_price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        Product::create($request->all());
+        return redirect('/admin')->with('success', 'Product toegevoegd!');
+    }
+
+    public function story_category(Request $request){
+        $request->validate([
+            'name' => 'required|unique:categories,name',
+        ]);
+
+            Categories::create([
+        'name' => $request->name,
+    ]);
+
+            return redirect('/admin')->with('success', 'Categorie toegevoegd!');
+
     }
 
     /**
