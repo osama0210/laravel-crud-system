@@ -33,3 +33,5 @@ Route::get('/admin', [MenuController::class, 'showAdminProducts'])->middleware([
 Route::post('/admin/products', [MenuController::class, 'store'])->name('products.store');
 
 Route::post('/admin/category', [MenuController::class, 'store_category'])->name('products.category');
+
+Route::put('/admin/products/{id}', [MenuController::class, 'update'])->name('product.update');

@@ -20,7 +20,7 @@
     <div class="table-container">
         <div class="table-title-btn-container">
             <h1>Products</h1>
-            <button class="login-button btn" id="openModal">Add Product</button>
+            <button class="login-button btn" id="addOpenModal">Add Product</button>
 
         </div>
         <table class="products-table">
@@ -43,7 +43,18 @@
                     <td> {{ $product->product_price }} </td>
                     <td>{{ $product->category->category_name ?? 'Uncategorized' }}</td>
                     <td>
-                        <button class="btn btn-edit">Edit</button>
+                        {{--Here, the existing data from the database is passed as data attributes to JavaScript--}}
+                        <button
+                            class="btn btn-edit open-edit-modal"
+                            id="editButton"
+                            data-id="{{ $product->id }}"
+                            data-name="{{ $product->product_name }}"
+                            data-description="{{ $product->product_description }}"
+                            data-price="{{ $product->product_price }}"
+                            data-category="{{ $product->category_id }}"
+                        >
+                            Edit
+                        </button>
                         <button class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</button>
                     </td>
                 </tr>
@@ -52,14 +63,16 @@
         </table>
     </div>
 
-    <div class="modal">
+    <div class="modal" id="productModal">
         <div class="modal-header">
-            <h1>Add Product</h1>
+            <h1 id="modalTitle">Add Product</h1>
             <img id="closeModal" src="{{ asset("images/exit-icon.svg") }}" alt="Black exit X button">
         </div>
         <div class="modal-body">
-            <form action="{{ route('products.store') }}" method="POST">
+            <form id="productForm" action="{{ route('products.store') }}" method="POST">
                 @csrf
+                <input type="hidden" name="_method" value="POST" id="formMethod">
+
                 <input type="text" name="product_name" placeholder="Enter Product Name">
                 <textarea name="product_description" id="" cols="30" rows="4" placeholder="Description"></textarea>
                 <input type="text" name="product_price" placeholder="Enter Product Price">
@@ -70,10 +83,10 @@
                     @endforeach
                 </select>
                 <div class="submit-wrapper">
-                    <input type="submit" value="Add Product">
+                    <input name="submit" type="submit" value="Add Product">
                 </div>
             </form>
-            <form action="{{ route('products.category') }}" method="POST">
+            <form id="categoryForm" action="{{ route('products.category') }}" method="POST">
                 @csrf
                 <h1>New Category</h1>
                 <input type="text" name="category_name" placeholder="New category">

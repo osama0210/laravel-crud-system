@@ -135,6 +135,7 @@
     border: 1px solid #ccc;
     font-size: 14px;
     resize: vertical;
+    color: #898989;
 }
 
 .submit-wrapper {
@@ -155,4 +156,20 @@
 
 .modal-body input[type="submit"]:hover {
     background-color: #0069d9;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #898989;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    border-color: #007bff;
 }

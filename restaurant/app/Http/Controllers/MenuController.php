@@ -86,6 +86,22 @@ class MenuController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'product_name' => 'required',
+            'product_description' => 'required',
+            'product_price' => 'required|numeric',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->update([
+            'product_name' => $request->product_name,
+            'product_description' => $request->product_description,
+            'product_price' => $request->product_price,
+            'category_id' => $request->category_id,
+        ]);
+
+        return redirect('/admin');
     }
 
     /**
@@ -94,5 +110,6 @@ class MenuController extends Controller
     public function destroy(string $id)
     {
         //
+
     }
 }
