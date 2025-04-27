@@ -4,7 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\AuthController;
 
-Route::get('/', [MenuController::class, 'index']);
+Route::get('/', [MenuController::class, 'index'])->name('index');
+
+Route::get('/menu', function (){
+    return view('menu.menu');
+})->name('menu');
 
 Route::get('/register', [AuthController::class, 'index']);
 Route::post('/register', [AuthController::class, 'register'])->name('register');
@@ -35,3 +39,5 @@ Route::post('/admin/products', [MenuController::class, 'store'])->name('products
 Route::post('/admin/category', [MenuController::class, 'store_category'])->name('products.category');
 
 Route::put('/admin/products/{id}', [MenuController::class, 'update'])->name('product.update');
+
+Route::delete('/admin/products/{id}', [MenuController::class, 'destroy'])->name('products.destroy');

@@ -39,10 +39,16 @@
                 <tr>
                     <td> {{ $product->id }} </td>
                     <td> {{ $product->product_name }} </td>
-                    <td> {{ $product->product_description }} </td>
+                    <td class="product-description">
+                        @if(strlen($product->product_description) > 10)
+                            {{ substr($product->product_description, 0, 10) . '...' }}
+                        @else
+                            {{ $product->product_description }}
+                        @endif
+                    </td>
                     <td> {{ $product->product_price }} </td>
                     <td>{{ $product->category->category_name ?? 'Uncategorized' }}</td>
-                    <td>
+                    <td class="action-buttons">
                         {{--Here, the existing data from the database is passed as data attributes to JavaScript--}}
                         <button
                             class="btn btn-edit open-edit-modal"
@@ -55,7 +61,11 @@
                         >
                             Edit
                         </button>
-                        <button class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</button>
+                        <form action="{{ route('products.destroy', $product->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -88,8 +98,11 @@
             </form>
             <form id="categoryForm" action="{{ route('products.category') }}" method="POST">
                 @csrf
-                <h1>New Category</h1>
-                <input type="text" name="category_name" placeholder="New category">
+                <div class="modal-header">
+                    <h1 id="modalTitle">Add Category</h1>
+                </div>
+                <input class="category-input" type="text" name="category_name" placeholder="New category">
+
                 <div class="submit-wrapper">
                     <input type="submit" value="Add Category">
                 </div>

@@ -45,6 +45,11 @@
     border-bottom: 2px solid #ce1213;
 }
 
+.action-buttons{
+    display: flex;
+    gap: 1rem;
+}
+
 .btn {
     padding: 6px 12px;
     font-size: 14px;
@@ -172,4 +177,8 @@ select {
 
 select:focus {
     border-color: #007bff;
+}
+
+.category-input{
+    width: 100%;
 }

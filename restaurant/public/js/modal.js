@@ -45,5 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
     });
-
 });
+
+
