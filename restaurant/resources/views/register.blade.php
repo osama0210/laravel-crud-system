@@ -45,7 +45,7 @@
                 @enderror
                 <input class="register-input" type="password" name="password_confirmation"
                        placeholder="Enter your password">
-                <input class="submit-btn" type="submit">
+                <input class="submit-btn" type="submit" value="Register">
             </form>
         </section>
     </section>

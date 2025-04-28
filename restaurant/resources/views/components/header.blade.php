@@ -7,7 +7,7 @@
         </a>
         <div class="links-container">
             <a href={{ route('index') }}>Home</a>
-            <a href="/">About</a>
+            <a href="{{ url('/')}}#about">About</a>
             <a href={{ route('menu') }} >Menu</a>
         </div>
         <div class="login-button-container">

@@ -46,7 +46,7 @@
                             {{ $product->product_description }}
                         @endif
                     </td>
-                    <td> {{ $product->product_price }} </td>
+                    <td> € {{ $product->product_price }} </td>
                     <td>{{ $product->category->category_name ?? 'Uncategorized' }}</td>
                     <td class="action-buttons">
                         {{--Here, the existing data from the database is passed as data attributes to JavaScript--}}

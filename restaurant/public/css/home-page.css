@@ -63,46 +63,54 @@
 
 /*------------------------------------------------------------------------------------*/
 .about-section {
-    height: 100vh;
+    height: auto;
     width: 100%;
     display: flex;
+    justify-content: center;
+    padding: 4rem 2rem;
 }
 
 .about-us-content {
     width: 100%;
+    max-width: 1200px;
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 
 .about-us-img {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 1 1 300px;
+    max-width: 500px;
 }
 
-.about-us-text{
-    padding: 5rem 4rem;
-    flex: 0 0 47%;
-    max-width: 50%;
+.about-us-text {
+    flex: 1 1 300px;
+    max-width: 600px;
+    padding: 2rem;
 }
 
-.about-us-text p{
+.about-us-text p {
     color: #898989;
 }
 
-.contact-button{
+.contact-button {
     margin: 2rem 0;
 }
 
-/*------------------------------------------------------------------------------------*/
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .about-us-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-.between-section{
-    height: 150px;
-    width: 100%;
-    background-color: white;
-}
+    .about-us-img, .about-us-text {
+        max-width: 100%;
+        flex: none;
+    }
 
-.footer{
-    height: 300px;
-    width: 100%;
-    background-color: #1f1f24;
+    .about-us-text {
+        padding: 1rem;
+    }
 }

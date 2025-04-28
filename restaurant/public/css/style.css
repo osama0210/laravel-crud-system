@@ -1,9 +1,14 @@
 @import "header.css";
+@import "footer.css";
 @import "home-page.css";
 @import "register.css";
 @import "success-page.css";
 @import "admin.css";
 @import "menu.css";
+
+html {
+    scroll-behavior: smooth;
+}
 
 * {
     margin: 0;

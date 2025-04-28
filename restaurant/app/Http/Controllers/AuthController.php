@@ -31,12 +31,6 @@ class AuthController extends Controller
         return redirect('/success');
     }
 
-    public function testUsers()
-    {
-        $users = User::all();
-        dd($users);
-    }
-
     public function showLoginForm(){
         return view('login');
     }

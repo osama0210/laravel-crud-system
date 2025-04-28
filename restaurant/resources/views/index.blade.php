@@ -61,7 +61,7 @@
     </div>
 </section>
 
-<section class="about-section">
+<section id="about" class="about-section">
     <div class="about-us-content">
         <img class="about-us-img" src="/images/about-us-image.jpg" alt="">
         <div class="about-us-text">
@@ -106,9 +106,6 @@
         </div>
     </div>
 </section>
-<div class="between-section"></div>
-<footer class="footer">
-    <h1>Footer will come later</h1>
-</footer>
+@include('components.footer')
 </body>
 </html>

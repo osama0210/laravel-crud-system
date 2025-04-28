@@ -51,7 +51,7 @@
                 <div class="menu-item" data-category-id="{{ $product->category_id }}">
                     <div class="item-info">
                         <h2>{{ $product->product_name }}</h2>
-                        <p>Price: <span class="price">{{ $product->product_price }}</span></p>
+                        <p>Price: <span class="price">{{"€" . $product->product_price }}</span></p>
                         <p>{{ $product->product_description }}</p>
 
                     </div>
@@ -63,6 +63,7 @@
         </div>
     </div>
 </section>
+@include('components.footer')
 </body>
 </html>
 
