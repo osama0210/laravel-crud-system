@@ -1,8 +1,8 @@
 .admin-page{
     height: calc(100vh - 90px);
-    margin: 5rem;
     display: flex;
     justify-content: center;
+    padding: 10rem
 }
 
 .table-title-btn-container{

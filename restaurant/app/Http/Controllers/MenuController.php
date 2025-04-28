@@ -19,10 +19,17 @@ class MenuController extends Controller
 
     public function showAdminProducts()
     {
-        $products = Product::all();
+        $products = Product::with('category')->get();
         $categories = Categories::all();
         return view('admin.admin-dashboard', compact('products', 'categories'));
 
+    }
+
+    public function showMenu()
+    {
+        $products = Product::all();
+        $categories = Categories::all();
+        return view('menu.menu', compact('products', 'categories'));
     }
 
     /**
@@ -62,6 +69,7 @@ class MenuController extends Controller
     public function show(string $id)
     {
         //
+
     }
 
     /**

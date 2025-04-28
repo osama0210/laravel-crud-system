@@ -3,6 +3,7 @@
 @import "register.css";
 @import "success-page.css";
 @import "admin.css";
+@import "menu.css";
 
 * {
     margin: 0;

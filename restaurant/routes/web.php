@@ -6,9 +6,7 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [MenuController::class, 'index'])->name('index');
 
-Route::get('/menu', function (){
-    return view('menu.menu');
-})->name('menu');
+Route::get('/menu', [MenuController::class, 'showMenu'])->name('menu');
 
 Route::get('/register', [AuthController::class, 'index']);
 Route::post('/register', [AuthController::class, 'register'])->name('register');
@@ -41,3 +39,4 @@ Route::post('/admin/category', [MenuController::class, 'store_category'])->name(
 Route::put('/admin/products/{id}', [MenuController::class, 'update'])->name('product.update');
 
 Route::delete('/admin/products/{id}', [MenuController::class, 'destroy'])->name('products.destroy');
+
